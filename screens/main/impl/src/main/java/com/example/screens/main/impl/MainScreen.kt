@@ -2,6 +2,7 @@ package com.example.screens.main.impl
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -78,6 +79,7 @@ private fun Search() {
     ) {
         Row(
             modifier = Modifier
+                .clickable(onClick = { TODO() })
                 .background(
                     Color.Red,
                     shape = RoundedCornerShape(15.dp)
@@ -98,6 +100,7 @@ private fun User() {
     ){
         Row(modifier = Modifier
             .fillMaxWidth()
+            .clickable(onClick = { TODO() })
             .padding(horizontal = 15.dp)
             .background(
                 Color.LightGray,
