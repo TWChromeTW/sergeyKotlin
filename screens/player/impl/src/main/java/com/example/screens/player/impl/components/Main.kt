@@ -2,6 +2,7 @@ package com.example.screens.player.impl.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,9 +27,11 @@ internal fun Main() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
+            .padding(15.dp, 13.dp, 15.dp, 0.dp)
             .background(
                 Color.White, shape = RoundedCornerShape(25.dp)
             )
+            .border(0.9.dp, Color.Black, shape = RoundedCornerShape(25.dp))
     ) {
         Row(
             modifier = Modifier.fillMaxWidth()
@@ -40,7 +43,7 @@ internal fun Main() {
                     modifier = Modifier
                         .size(112.dp)
                         .background(
-                            Color.Blue, shape = RoundedCornerShape(75.dp)
+                            Color.LightGray, shape = RoundedCornerShape(75.dp)
                         ),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -80,7 +83,7 @@ internal fun Main() {
             onClick = { /*TODO*/ },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(15.dp, 10.dp, 15.dp, 0.dp),
+                .padding(15.dp, 10.dp, 15.dp, 0.dp)
         ) {
             Text(text = "PROFILE LINK")
         }
@@ -90,7 +93,8 @@ internal fun Main() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(15.dp, 10.dp, 15.dp, 7.dp),
-        ) {
+
+            ) {
             Text(text = "STEAM PROFILE LINK")
         }
 
