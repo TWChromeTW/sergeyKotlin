@@ -19,7 +19,7 @@ fun PlayerInfoScreen() {
             .fillMaxSize()
             .background(Color.LightGray)
     ) {
-        items(count = 1) {
+        item {
             AppBar()
 
             Main()

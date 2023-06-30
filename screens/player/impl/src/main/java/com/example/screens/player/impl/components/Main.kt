@@ -93,7 +93,6 @@ internal fun Main() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(15.dp, 10.dp, 15.dp, 7.dp),
-
             ) {
             Text(text = "STEAM PROFILE LINK")
         }

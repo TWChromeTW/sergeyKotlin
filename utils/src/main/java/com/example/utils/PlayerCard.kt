@@ -1,155 +1,109 @@
 package com.example.utils
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun PlayerCard(
-    modifier: Modifier = Modifier,
-    nickname: String,
-    lastOnline: String,
-    avatarImagePainter: Painter,
-    onProfileLinkIsClicked: () -> Unit,
-    onSteamProfileLinkIsClicked: () -> Unit,
 ) {
-    OutlinedCard(
-        modifier = modifier,
-        shape = RoundedCornerShape(12.dp),
-        border = CardDefaults.outlinedCardBorder(enabled = true),
-        colors = CardDefaults.outlinedCardColors(
-            containerColor = MaterialTheme.colorScheme.onPrimary
-        ),
-        elevation = CardDefaults.outlinedCardElevation(defaultElevation = 0.dp)
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(15.dp, 13.dp, 15.dp, 0.dp)
+            .background(
+                Color.White, shape = RoundedCornerShape(25.dp)
+            )
+            .border(0.9.dp, Color.Black, shape = RoundedCornerShape(25.dp))
     ) {
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentHeight()
-                .padding(horizontal = 16.dp, vertical = 12.dp),
+            modifier = Modifier.fillMaxWidth()
         ) {
-            AvatarImage(
-                painter = avatarImagePainter,
-                hasDotaPlus = true
-            )
-
-            Spacer(modifier = Modifier.width(16.dp))
+            Box(
+                modifier = Modifier.padding(15.dp, 7.dp, 0.dp, 7.dp)
+            ) {
+                Column(
+                    modifier = Modifier
+                        .size(112.dp)
+                        .background(
+                            Color.LightGray, shape = RoundedCornerShape(75.dp)
+                        ),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.dota2_icon_placeholder),
+                        contentDescription = "dota_icon",
+                        Modifier.size(80.dp)
+                    )
+                }
+            }
 
             Column(
-                horizontalAlignment = Alignment.Start,
-                verticalArrangement = Arrangement.Top,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(0.dp, 20.dp, 100.dp, 0.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
             ) {
-                Text(
+                Column(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .wrapContentHeight(),
-                    text = stringResource(R.string.nickname),
-                    maxLines = 1,
-                    style = MaterialTheme.typography.titleMedium
-                )
+                ) {
+                    Text(text = "NickName")
+                    Text(text = "Chrome")
+                }
 
-                Text(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .wrapContentHeight(),
-                    text = nickname,
-                    maxLines = 1,
-                    style = MaterialTheme.typography.bodyLarge
-                )
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Text(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .wrapContentHeight(),
-                    text = stringResource(R.string.last_online),
-                    maxLines = 1,
-                    style = MaterialTheme.typography.bodyLarge
-                )
-
-                Text(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .wrapContentHeight(),
-                    text = lastOnline,
-                    maxLines = 1,
-                    style = MaterialTheme.typography.bodyMedium
-                )
+                Column(
+                    modifier = Modifier.padding(5.dp, 10.dp, 0.dp, 0.dp)
+                ) {
+                    Text(text = "Last Online")
+                    Text(text = "Never")
+                }
             }
         }
 
-        Column(
-            modifier = Modifier.padding(16.dp)
+        Button(
+            onClick = { /*TODO*/ },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(15.dp, 10.dp, 15.dp, 0.dp)
         ) {
-            Button(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
-                    contentColor = MaterialTheme.colorScheme.onPrimary,
-                ),
-                onClick = onProfileLinkIsClicked,
-            ) {
-                Text(
-                    modifier = Modifier.padding(vertical = 10.dp),
-                    text = stringResource(R.string.profile_link)
-                )
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Button(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                    contentColor = MaterialTheme.colorScheme.primary,
-                ),
-                onClick = onSteamProfileLinkIsClicked,
-            ) {
-                Text(
-                    modifier = Modifier.padding(vertical = 10.dp),
-                    text = stringResource(R.string.steam_profile_link)
-                )
-            }
+            Text(text = "PROFILE LINK")
         }
+
+        Button(
+            onClick = { /*TODO*/ },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(15.dp, 10.dp, 15.dp, 7.dp),
+        ) {
+            Text(text = "STEAM PROFILE LINK")
+        }
+
     }
 }
 
 @Composable
 @Preview
 private fun PlayerCard_Preview() {
-    PlayerCard(
-        avatarImagePainter = painterResource(id = R.drawable.dota2_icon_placeholder),
-        nickname = "Durachyo",
-        lastOnline = "12 hours ago",
-        onProfileLinkIsClicked = {},
-        onSteamProfileLinkIsClicked = {},
-    )
+    PlayerCard()
 }
 
 
